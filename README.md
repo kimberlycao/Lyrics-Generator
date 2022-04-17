@@ -12,7 +12,9 @@
 
 ## Introduction
 
-The goal of this project is to create a model
+The goal of this project is to create a model that generates 80's and 90's love song lyrics. This is an unsupervised learning problem that deals with sequential data, since songs for usually contextual. For this reason, we'll be doing it using **(1)** a recurrent neural network (RNN) with gated recurrent units (GRU) and **(2)** using the [GPT-2 transformer](https://huggingface.co/gpt2) provided by Huggingface.
+
+Users will input the model, maximum length of the output lyric sequence and a temperature to generate lyrics using method **(1)**. To produce lyrics using method **(2)**, users will input a top_p, top_k, the number of returned lyric sequences and a maximum length for each lyric sequence.
 
 ## Model
 
