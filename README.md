@@ -1,6 +1,7 @@
-# Lyrics Generator
+# Lyrics Generator 🎶
 
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [Model](#model)
 - [Data](#data)
@@ -10,6 +11,8 @@
 - [Authors](#authors)
 
 ## Introduction
+
+The goal of this project is to create a model
 
 ## Model
 
