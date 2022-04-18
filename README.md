@@ -18,7 +18,7 @@ Users will input the model, maximum length of the output lyric sequence and a te
 
 ## Model
 
-**Method (2):** GPT-2 is a generative model that is capable of writing novels, news articles and even poetry. In order for GPT-2 to generate song lyrics, it needs to be fine-tuned
+**Method (2):** GPT-2 is a generative model that is capable of writing novels, news articles and even poetry. In order for GPT-2 to generate song lyrics, it needs to be fine-tuned using lyrical data.
 
 ## Data
 
@@ -46,20 +46,33 @@ An example of the tokenizer in use:
 test_sentence1 = "I love this computer science class"
 input_ids1 = tokenizer.encode(test_sentence1, return_tensors='pt')
 
-test_sentence2 = "I love this computer science class"
+test_sentence2 = "I love puppies"
 input_ids2 = tokenizer.encode(test_sentence2, return_tensors='pt')
 
 print(input_ids1) # tensor([[  40, 1842,  428, 3644, 3783, 1398]])
-print(input_ids1) # tensor([[   40,  1842, 37793]])
+print(input_ids2) # tensor([[   40,  1842, 37793]])
 ```
 
 ### Data Split
 
-For both methods **(1)** and **(2)**, the dataset was not split - the entire dataset was used to train with. We evaluated our outputs using -----**_insert evaluation method_**-----.
+For both methods **(1)** and **(2)**, the dataset was not split - the entire dataset was used to train with. In this problem, we're trying to understand the underlying structure of the data instead of performing a classification task where there is a right and wrong answer. Usually, we're able to calculate accuracy for a test set to determine whether the model is good or bad, but measurements like accuracy are not applicable for a creative task. For this reason, we didn't split our data before training.
 
 ## Training
 
 **Method (2):**
+
+<img src="images/gpt2-training-loss.jpg" alt="GPT-2 Training Loss" width="450"/>
+
+| Epoch | Training Loss |
+| ----- | :-----------: |
+| 1     |   5.159400    |
+| 2     |   1.258556    |
+| 3     |   1.117548    |
+| 4     |   1.031602    |
+| 5     |   0.985897    |
+| 6     |   0.951483    |
+
+When training the GPT-2 model, we found that using epochs equal to 5 and 6 yielded a similar training loss by the last epoch. Each time, the largest decrease in training loss happened between epochs 1 and 2. Epochs beyond 2 decreased minimally relative to this and each epoch took approximately 25 minutes to train, so epochs greater than 6 were not tested. We used a batch size of 2 because anything larger than 2 resulted in an out of memory error. We could have used accumulated gradients in order to use larger batch sizes, but did not for this project. When trying a learning rate of 0.0001, the lyrics were very repetitive and random-sounding compared to a learning rate of 0.0005. This smaller learning rate could have prevented the model from converging, since the number of epochs were kept the same in both training sessions and 0.0005 produced significantly better lyrics. We used a learning rate scheduler during training and the number of warmup steps was set to 100. The scheduler decreases the learning rate as the number of epochs increases. This prevents the optimization of the loss function from diverging. We chose a small epsilon value because we wanted the model to choose the next word with the highest probability most of the time.
 
 ## Results
 
@@ -73,7 +86,7 @@ Copyright issues can extend to using existing songs to train the model. Being th
 
 Copyright is meant to protect a person's musical works. Copyright infringement is particularly harmful to the person found guilty. The guilty party may be ordered to pay fines/damages and can also suffer reputational damage as well. This is especially concerning because we are using Genius lyrics to train this model and potentially leaving ourselves vulnerable to copyright infringement if this model is used to produce a song for more than a momentary laugh. People who produce lyrics similar to a song that already exists can also be at risk for copyright infringement. Users of this model should be careful not to use the same instrumentals as existing songs.
 
-Depending on the age of the user or the intended audience of a song produced by this model, some undesirable lyrics consisting of profanity/racism/etc. may be produced (e.g. I'd shoot up the school for you girl). This can be seen as inappropriate to some and in the future, a way to filter out inappropriate lyrics would be a good feature.
+Depending on the age of the user or the intended audience of a song produced by this model, some undesirable lyrics consisting of profanity/racism/etc. may be produced (e.g. I'd kill my mom for love). This can be seen as inappropriate to some and in the future, a way to filter out inappropriate lyrics would be a good feature.
 
 ## Authors and Credit
 
