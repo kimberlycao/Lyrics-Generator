@@ -24,7 +24,28 @@ Users will input the model, maximum length of the output lyric sequence and a te
 
 ### Data Source
 
+Our data is a collection of 80’s and 90’s love song lyrics scraped from Genius.com. To find songs to use, we curated a collection of playlists from Spotify and used each song we found (disregarding duplicates among playlists). To acquire the lyrics, we used the artist and song name of each track to scrape the lyrics off of Genius.com. In total, we had lyrics for 184 songs in our dataset.
+
 ### Data Summary
+
+In order to interpret our results, we collected a number of summary statistics on our data. We found that, on average, a song in our dataset was 1559.25 characters long, and 323.69 words long. As such, the inputs to our model are fairly long. 
+
+We also investigated the amount of repetition that exists in our dataset. Our data had 80 unique characters and 3805 unique words. As for the frequencies of these words, we found that the top 20% of our most frequently used words made up for 87.27% of the words used in our lyrics. We also found that the top 10 words used in our songs were as follows:
+
+| Word      | Frequency (%) |
+| ----------| ----------- |
+| I         | 5.36       |
+| you       | 4.97        |
+| the       | 2.58       |
+| to        | 2.33        |
+| me        | 1.77       |
+| my        | 1.49        |
+| love      | 1.23       |
+| And       | 1.14        |
+| a         | 1.05       |
+| in        | 1.02        |
+
+As for the length of each lyric, each line of our songs are, on average, 29.05 characters in length and 6.23 words long.
 
 ### Data Transformation
 
