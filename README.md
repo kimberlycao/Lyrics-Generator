@@ -49,6 +49,13 @@ As for the length of each lyric, each line of our songs are, on average, 29.05 c
 
 ### Data Transformation
 
+**Method (1):** Our dataset was quite small, with only 184 songs. As such, we decided that we would attempt to augment our data in order to compensate for our lack of examples. To do this, we used the nlpaug library. 
+
+We decided to only perform data augmentation on the GRU model. We were unsure of how data augmentation would affect the performance of our model, because while it would provide us with more data, the new data did seem to be quite different from our original lyrics. As such, we thought that our models may end up performing worse than had we used the original data. Since the GRU model was completed before the GPT-2 model, we decided to experiment with the augmented data on the GRU model instead.
+
+We augmented at the character and word level. When it came to character level augmentation, we randomly swapped adjacent characters, inserted new characters, and deleted characters from our lyrics. As for word level augmentation, we randomly swapped and deleted words, as well as randomly split words into two words. Each of these techniques were performed on the entire dataset, and thus, our final dataset consisted of 1104 songs.
+
+
 **Method (2):** Input strings need to be tokenized (converted into a numerical representation) before they are passed to the model for training or generation. The transformers library comes with a word-based tokenizer, which we used for this project.
 
 ```python
