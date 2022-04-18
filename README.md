@@ -47,7 +47,7 @@ We also investigated the amount of repetition that exists in our dataset. Our da
 
 As for the length of each lyric, each line of our songs are, on average, 29.05 characters in length and 6.23 words long.
 
-### Data Transformation
+### Data Augmentation
 
 **Method (1):** Our dataset was quite small, with only 184 songs. As such, we decided that we would attempt to augment our data in order to compensate for our lack of examples. To do this, we used the nlpaug library. 
 
@@ -55,6 +55,26 @@ We decided to only perform data augmentation on the GRU model. We were unsure of
 
 We augmented at the character and word level. When it came to character level augmentation, we randomly swapped adjacent characters, inserted new characters, and deleted characters from our lyrics. As for word level augmentation, we randomly swapped and deleted words, as well as randomly split words into two words. Each of these techniques were performed on the entire dataset, and thus, our final dataset consisted of 1104 songs.
 
+### Data Transformation
+
+**Method (1):** Our dataset was stored in a csv file, where the songs were stored in the first column, and each cell in the column contained one song. To tokensize our data, we created a torchtext.legacy.Field object for sequential data, using “<BOS>” and “<EOS>” as the beginning and end of string tokens. We used this field to create a torchtext.legacy.TabularDataset object to store the dataset from the csv file. Then, our field object used our tabular dataset object as an input to build our vocabulary.
+  
+```python
+text_field = torchtext_data.Field(sequential=True,      # text sequence
+                                  tokenize=lambda x: x, # because are building a character-RNN
+                                  include_lengths=True, # to track the length of sequences, for batching
+                                  batch_first=True,
+                                  use_vocab=True,       # to turn each character into an integer index
+                                  init_token="<BOS>",   # BOS token
+                                  eos_token="<EOS>")    # EOS token
+
+fields = [('text', text_field)]
+lyrics = torchtext_data.TabularDataset("/content/drive/MyDrive/csv_lyrics", "csv", fields)
+text_field.build_vocab(lyrics)
+vocab_stoi = text_field.vocab.stoi
+vocab_itos = text_field.vocab.itos
+vocab_size = len(text_field.vocab.itos)
+```
 
 **Method (2):** Input strings need to be tokenized (converted into a numerical representation) before they are passed to the model for training or generation. The transformers library comes with a word-based tokenizer, which we used for this project.
 
