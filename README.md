@@ -258,11 +258,13 @@ Depending on the age of the user or the intended audience of a song produced by 
 ## Authors and Credit
 
 [Nameera Azim](https://github.com/NameeraAzim)
+ 
 Coding:
 - GRU model training
 - GRU model overfitting
 - GRU model tuning hyperparameters (batch size, learning rate, temperature)
 - GRU model debugging data transformation, model, training functions
+  
 Writing:
 - GRU model parameters 
 - GRU model successful and unsuccessful examples
