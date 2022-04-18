@@ -25,6 +25,7 @@ This model has three layers, namely the embedding layer, the GRU layer, and the 
 The embedding layer has a 256✕256 weights matrix. Each row in this matrix represents a character. The desired row is isolated when multiplied by the one-hot input vector. Thus, there are 22,016 parameters in this layer, which is the total number of weights in the weight matrix.
 
 The PyTorch implementation of the GRU layer has the following functions:
+<img src="images/pytorch_gru_functions.png" alt="GRU Training Loss Curve" width="450"/>
 
 The parameters in this layer are the weights and biases applied to the input character at time t, x_t, and the character predicted by the hidden state at time t-1 or at the initial time of 0, h_(t-1), to calculate the reset, update, and new gates. 
 
@@ -74,6 +75,7 @@ Just about you
 Baby, I'll be alright
 
 The training curve of this model is as follows:
+<img src="images/GRU_training_curve.png" alt="GRU Training Loss Curve" width="450"/>
 
 The hyper-parameters that we tuned are the batch size, the learning rate, and the temperature. 
 
