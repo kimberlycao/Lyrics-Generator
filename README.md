@@ -433,7 +433,22 @@ Writing:
 
 [Yousef Bulbulia](https://github.com/CometWhoosh)
 
-- Data scraping and augmentation
+Coding:  
+- Data scraping and data augmentation
+- GRU model training
+- GRU model overfitting
+- GRU model tuning hyperparameters with the augmented dataset
+- GRU model debugging data transformation, model, training functions
+
+Readme:
+- GRU model diagram and forward pass explanation
+- Data section (Data Source, Data Summary, and GRU model subsections)
+- GRU model training curve 
+- GRU model with augmented dataset: description of hyperparameter tuning
+- Results section
+  
+other:
+- Created survey
 
 [Kimberly Cao](https://github.com/kimberlycao)
 
