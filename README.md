@@ -445,7 +445,7 @@ Writing:
 - Data section (Data Source, Data Summary, and GRU model subsections)
 - GRU model training curve 
 - GRU model with augmented dataset: description of hyperparameter tuning
-- Results section
+- Survey and GRU Model subsections of the Results section
   
 Other:
 - Created survey
