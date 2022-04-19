@@ -215,15 +215,17 @@ The training curve of this model is as follows:
 
 <img src="images/GRU_training_curve.png" alt="GRU Training Loss Curve" width="450"/>
   
-[Iter 51] Loss 0.455567
-[Iter 251] Loss 0.362286
-[Iter 451] Loss 0.343373
-[Iter 651] Loss 0.031363
-[Iter 851] Loss 0.063098
-[Iter 1051] Loss 0.083389
-[Iter 1251] Loss 0.115295
-[Iter 1451] Loss 0.149816
-[Iter 1651] Loss 0.197414
+| Iteration | Training Loss |
+| --------- | :-----------: |
+| 51        |   0.455567    |
+| 251       |   0.362286    |
+| 451       |   0.343373    |
+| 651       |   0.031363    |
+| 851       |   0.063098    |
+| 1051      |   0.083389    |
+| 1251      |   0.115295    |
+| 1451      |   0.149816    |
+| 1651      |   0.197414    |
 
 #### Tuning Hyperparameters
 The hyper-parameters that we tuned are the batch size, the learning rate, and the temperature. 
