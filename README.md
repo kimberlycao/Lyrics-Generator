@@ -447,7 +447,7 @@ Readme:
 - GRU model with augmented dataset: description of hyperparameter tuning
 - Results section
   
-other:
+Other:
 - Created survey
 
 [Kimberly Cao](https://github.com/kimberlycao)
