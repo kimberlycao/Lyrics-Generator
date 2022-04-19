@@ -429,7 +429,7 @@ Writing:
 - GRU model parameters
 - GRU model successful and unsuccessful examples
 - GRU model training curve
-- GRU model description oh hyperparameter tuning
+- GRU model description of hyperparameter tuning
 
 [Yousef Bulbulia](https://github.com/CometWhoosh)
 
@@ -440,7 +440,7 @@ Coding:
 - GRU model tuning hyperparameters with the augmented dataset
 - GRU model debugging data transformation, model, training functions
 
-Readme:
+Writing:
 - GRU model diagram and forward pass explanation
 - Data section (Data Source, Data Summary, and GRU model subsections)
 - GRU model training curve 
