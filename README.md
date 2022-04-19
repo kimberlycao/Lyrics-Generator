@@ -325,7 +325,7 @@ The training curve of this model is as follows:
   
 With data augmentation, the training curve is:
   
-<img src="images/data_aug_curve.png" alt="GRU Training Loss Curve with Augmented Data" width="450"/>
+<img src="images/gru_data_aug_curve.png" alt="GRU Training Loss Curve with Augmented Data" width="450"/>
 
 | Iteration | Training Loss |
 | --------- | :-----------: |
