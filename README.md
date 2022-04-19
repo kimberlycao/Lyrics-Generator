@@ -321,6 +321,19 @@ The training curve of this model is as follows:
 | 1251      |   0.115295    |
 | 1451      |   0.149816    |
 | 1651      |   0.197414    |
+  
+With data augmentation, the training curve is:
+  
+![augemented data diagram](images/data_aug_curve.png)
+
+| Iteration | Training Loss |
+| --------- | :-----------: |
+| 51        |   0.228565    |
+| 251       |   0.238960    |
+| 451       |   0.268541    |
+| 651       |   0.025033   |
+| 851       |   0.076478    |
+
 
 #### Tuning Hyperparameters
 
@@ -331,6 +344,14 @@ We began by fixing the learning rate at 0.001, a value that gave us a reasonable
 We then tested various values for the learning rate. We concluded that a learning rate of 0.007 resulted in the best performance. Higher learning rates resulted in a volatile loss function, and lower learning rates caused the loss function to take an extremely long time to converge.
 
 Finally, when generating the songs, we settled on a temperature of 0.5. Higher temperatures resulted in more grammatical errors, spelling errors, and produced words that were not real. Lower temperatures resulted in songs with repeated words and sentences or sentences that were incomprehensible.
+  
+We also tuned the model again when using the augmented dataset. Again, the hyper-parameters we tuned were the batch size, learning rate, and temperature. 
+
+We fixed the learning rate to be 0.005 as that gave us a reasonable performance. Then we tried batch sizes of 150, 120, 90, 60, 30, and 10. We found that a batch size of 30 gave us the lowest loss. Since batch sizes of 60 and 10 had levels of loss that were only slightly larger, it seemed that batch sizes between 30 and 60 and batch sizes between 30 and 10 would likely give us a negligible difference in loss, so we chose to end our search for batch size values and settled on a value of 30.
+
+We then tested various values for the learning rate. We tested learning rates of 0.0085, 0.0065, 0.0045, 0.0025, and 0.0005. We found that a learning rate of 0.0045 gave us the lowest loss. If we increased the learning rate, the loss increased noticeably, and if we decreased the learning rate, the model took too long to train. As such, we settled on a value of 0.0045 for the learning rate.
+
+Finally, when generating the songs, we decided on a value of 0.04 for the temperature. Like before, increasing the temperature resulted in more errors and nonsensical words, and decreasing it repeated phrases and sentences that were not comprehensible.
 
 **Method (2):**
 
