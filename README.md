@@ -464,3 +464,7 @@ Writing:
 - Introduction
 - GPT-2-related sections
 - Ethical considerations
+  
+Other:
+
+- Created survey
