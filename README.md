@@ -26,11 +26,11 @@ The RNN model has the following structure:
 
 ![model diagram](images/GRU_Model.png)
 
-To begin, each song is split into tokens by characters, where each character ch(i) at time step i is a token (represented by a vector) that is used as an input to the model. This token is then passed into the embedding layer and converted to an embedding vector with a length of 256. This is embedding is the value stored in x(i). Then, our embedding vector x(i) is passed into h(i), which is a GRU unit. 
+To begin, each song is split into tokens by characters, where each character ch<sup>(i)</sup> at time step i is a token (represented by a vector) that is used as an input to the model. This token is then passed into the embedding layer and converted to an embedding vector with a length of 256. This is embedding is the value stored in x<sup>(i)</sup>. Then, our embedding vector x<sup>(i)</sup> is passed into h<sup>(i)</sup>, which is a GRU unit. 
 
-The GRU unit will take in the embedding vector x(i) and the previous hidden state h(i - 1), combine them, and pass them through the reset gate in order to determine how much past information to forget. They will also be combined and passed through the update gate in order to determine what new information to add, and the output of this will be sent to a multi-layered perceptron, as well as the GRU unit h(i + 1) at the next time step .
+The GRU unit will take in the embedding vector x<sup>(i)</sup> and the previous hidden state h<sup>(i - 1)</sup>, combine them, and pass them through the reset gate in order to determine how much past information to forget. They will also be combined and passed through the update gate in order to determine what new information to add, and the output of this will be sent to a multi-layered perceptron, as well as the GRU unit h<sup>(i + 1)</sup> at the next time step .
 
-The muti-layered perceptron will use the input h(i) and choose which character to use as the prediction y(i) by sampling from a probability distribution of possible characters. Instead of using the prediction y(i) as the input for the next time step, we apply teacher-forcing and use ch(i + 1). This process continues for each time step.
+The muti-layered perceptron will use the input h<sup>(i)</sup> and choose which character to use as the prediction y<sup>(i)</sup> by sampling from a probability distribution of possible characters. Instead of using the prediction y<sup>(i)</sup> as the input for the next time step, we apply teacher-forcing and use ch<sup>(i + 1)</sup>. This process continues for each time step.
 
 #### Number of Parameters
 
