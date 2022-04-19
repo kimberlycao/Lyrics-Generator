@@ -357,7 +357,7 @@ Finally, when generating the songs, we decided on a value of 0.04 for the temper
 
 #### Training Curve
 
-<img src="images/gpt2-training-loss.jpg" alt="GPT-2 Training Loss" width="450"/>
+<img src="images/gpt2-training-loss.png" alt="GPT-2 Training Loss" width="450"/>
 
 | Epoch | Training Loss |
 | ----- | :-----------: |
